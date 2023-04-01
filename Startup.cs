@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Task_Scheduler_App.Application.Repository.Interface;
+using Task_Scheduler_App.Application.Services;
 using Task_Scheduler_App.Infrastructure.Repository;
+using Task_Scheduler_App.Infrastructure.Services;
 
 namespace Task_Scheduler_Application
 {
@@ -29,7 +31,12 @@ namespace Task_Scheduler_Application
         //register services
         private void RegisterDependecies(IServiceCollection services)
         {
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddScoped<IDapper, Dapperr>();
+
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<ITaskSchedulerServices, TaskSchedulerServices>();
         }
 
 
@@ -61,7 +68,7 @@ namespace Task_Scheduler_Application
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Task}/{action=Index}/{id?}");
             });
         }
 
