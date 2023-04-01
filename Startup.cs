@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Task_Scheduler_App.Application.Repository.Interface;
+using Task_Scheduler_App.Infrastructure.Repository;
 
 namespace Task_Scheduler_Application
 {
@@ -24,8 +26,10 @@ namespace Task_Scheduler_Application
             RegisterDependecies(services);
         }
 
+        //register services
         private void RegisterDependecies(IServiceCollection services)
         {
+            services.AddScoped<IDapper, Dapperr>();
         }
 
 
