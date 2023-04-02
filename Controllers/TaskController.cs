@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using Task_Scheduler_App.Application.Services;
 using Task_Scheduler_App.Models.Model;
-using Task_Scheduler_Application.Models;
 
 namespace Task_Scheduler_Application.Controllers
 {
@@ -23,11 +22,5 @@ namespace Task_Scheduler_Application.Controllers
             return View(viewModel);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        
     }
 }

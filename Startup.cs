@@ -68,7 +68,7 @@ namespace Task_Scheduler_Application
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Task}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
 
