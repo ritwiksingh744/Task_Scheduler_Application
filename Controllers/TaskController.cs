@@ -15,11 +15,17 @@ namespace Task_Scheduler_Application.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> ShowJobList()
         {
             ViewModel viewModel = new ViewModel();
             viewModel.TaskList =await _taskSchedulerServices.GetTaskDetailsList();
             return View(viewModel);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> AddJobs()
+        {
+            return View();
         }
 
     }

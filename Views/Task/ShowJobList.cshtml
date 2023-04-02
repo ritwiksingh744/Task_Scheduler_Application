@@ -1,0 +1,43 @@
+﻿@using Task_Scheduler_App.Models.Model
+@model ViewModel
+@{
+    ViewData["Title"] = "ShowJobList";
+}
+
+<div class="container bg-white shadow-sm p-3">
+    <h3 class="text-black-50"><i class="bi bi-clipboard2-pulse-fill me-3"></i>Jobs</h3>
+    <hr />
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Job Id</th>
+                <th>Job Name</th>
+                <th>Endpoint</th>
+                <th>Owner Name</th>
+                <th>Email</th>
+                <th>Frequency Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(Model.TaskList.Any()){
+                foreach(var item in Model.TaskList){
+                    <tr>
+                        <td></td>
+                        <td>@item.JobId</td>
+                        <td>@item.JobName</td>
+                        <td>@item.Endpoint</td>
+                        <td>@item.JobOwnerName</td>
+                        <td>@item.JobOwnerEmail</td>
+                        <td>@item.JobFrequencyType</td>
+                    </tr>
+                }
+            }else{
+                <tr>
+                    <td colspan="7" style="text-align:center;"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; No data</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

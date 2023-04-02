@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewData["Title"] = "AddJobs";
+}
+<div class="container bg-white shadow-sm p-3">
+    <h3 class="text-black-50"><i class="fa-solid fa-calendar"></i>&nbsp; Add Job Details</h3>
+    <hr />
+    <form id="myForm">
+        @*row1*@
+        <div class="row g-3">
+            <div class="col-md-4">
+                <label for="jobName" class="form-label">Job Name:</label>
+                <input type="text" class="form-control" name="jobName" id="jobName">
+            </div>
+            <div class="col-md-8">
+                <label for="endpoint" class="form-label">Endpoint:</label>
+                <input type="text" class="form-control" name="endpoint" id="endpoint">
+            </div>
+            @*ro2*@
+            <div class="col-md-6">
+                <label for="inputJsonParameter" class="form-label">InputJsonParameter:</label>
+                <textarea id="inputJsonParameter" class="form-control" name="inputJsonParameter" rows="3"></textarea>
+            </div>
+            <div class="col-md-6">
+                <label for="jobOwnerName" class="form-label">Job Owner Name:</label>
+                <input type="text" class="form-control" name="jobOwnerName" id="jobOwnerName">
+            </div>
+            @*row3*@
+            <div class="col-md-4">
+                <label for="jobOwnerEmail" class="form-label">Owner Email:</label>
+                <input type="text" class="form-control" name="JobOwnerEmail" id="JobOwnerEmail">
+            </div>
+            <div class="col-md-4">
+                <label for="triggerOption" class="form-label">Trigger Type:</label>
+                <div class="form-check">
+                    <input type="radio"   name="triggerOption" id="trigger1">
+                    <text for="trigger1">Trigger Now</text> &nbsp;
+                    <input type="radio"  name="triggerOption" id="trigger2">
+                    <text for="trigger2" >Custom Trigger</text>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row g-3 custom-frequency mt-2">
+            <div class="col-md-4">
+                <label for="jobFrequencyType" class="form-label">Job Frequency Type:</label>
+                <select id="jobFrequencyType" name="jobFrequencyType" class="form-select">
+                    <option value="">Select frequency</option>
+                    <option value="Daily">Daily</option>
+                    <option value="Minutely">Minutely</option>
+                    <option value="Hourly">Hourly</option>
+                    <option value="Weekly">Weekly</option>
+                </select>
+            </div>
+            <div class="col-md-6 d-none frequency-select">
+                <label for="frequencyValueMin" class="form-label">Minute Frequency:</label>
+                <select id="frequencyValueMin" name="frequencyValueMin" class="form-select">
+                    <option value="">Select Minutes</option>
+                    @for(int i=1; i<60; i++){
+                        <option value="@i">@i</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-6 d-none frequency-select">
+                <label for="frequencyValueHour" class="form-label">Minute Frequency:</label>
+                <select id="frequencyValueHour" name="frequencyValueHour" class="form-select">
+                    <option value="">Select Hours</option>
+                    @for (int i = 1; i < 60; i++)
+                    {
+                        <option value="@i">@i</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-6 d-none frequency-select">
+                <label for="frequencyValueMin" class="form-label">Select Days:</label>
+                <input type="checkbox" id="Sunday"/>&nbsp;<tex>Sunday</tex><br />
+                <input type="checkbox" id="Monday" />&nbsp;<tex>Monday</tex><br />
+                <input type="checkbox" id="Tuesday" />&nbsp;<tex>Tuesday</tex><br />
+                <input type="checkbox" id="Wednesday" />&nbsp;<tex>Wednesday</tex><br />
+                <input type="checkbox" id="Thrusday" />&nbsp;<tex>Thrusday</tex><br />
+                <input type="checkbox" id="Friday" />&nbsp;<tex>Friday</tex><br />
+                <input type="checkbox" id="Saturday" />&nbsp;<tex>Saturday</tex>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <div class="row g-3 mt-2">
+            <div class="col-md-4">
+                <input type="submit" id="saveBtn" class="btn btn-success ms-3 bg-opacity-25" value="Save" />
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+
+}
+
