@@ -28,14 +28,14 @@
             @*row3*@
             <div class="col-md-4">
                 <label for="jobOwnerEmail" class="form-label">Owner Email:</label>
-                <input type="text" class="form-control" name="JobOwnerEmail" id="JobOwnerEmail">
+                <input type="text" class="form-control" name="jobOwnerEmail" id="jobOwnerEmail">
             </div>
             <div class="col-md-4">
                 <label for="triggerOption" class="form-label">Trigger Type:</label>
                 <div class="form-check">
-                    <input type="radio"   name="triggerOption" id="trigger1">
+                    <input type="radio" name="triggerOption" id="trigger1" onclick="scheduler.SelectTriggerType()">
                     <text for="trigger1">Trigger Now</text> &nbsp;
-                    <input type="radio"  name="triggerOption" id="trigger2">
+                    <input type="radio" name="triggerOption" id="trigger2" onclick="scheduler.SelectTriggerType()" checked>
                     <text for="trigger2" >Custom Trigger</text>
                 </div>
             </div>
@@ -43,9 +43,21 @@
         </div>
 
         <div class="row g-3 custom-frequency mt-2">
+            @*row1*@
+            <label>Select Job Start Date & Time:</label>
+            <div class="col-md-4">
+                <label for="selectDate" class="form-label">Select Date:</label>
+                <input name="selectDate" id="selectDate" type="date" class="form-control" />
+            </div>
+            <div class="col-md-4">
+                <label for="selectTime" class="form-label" >Select Time</label>
+                <input name="selectTime" id="selectTime" type="time" class="form-control" />
+            </div>
+            <div class="col-md-4"></div>
+            @*row2*@
             <div class="col-md-4">
                 <label for="jobFrequencyType" class="form-label">Job Frequency Type:</label>
-                <select id="jobFrequencyType" name="jobFrequencyType" class="form-select">
+                <select id="jobFrequencyType" name="jobFrequencyType" class="form-select" onchange="scheduler.FrequencySelection()">
                     <option value="">Select frequency</option>
                     <option value="Daily">Daily</option>
                     <option value="Minutely">Minutely</option>
@@ -53,7 +65,7 @@
                     <option value="Weekly">Weekly</option>
                 </select>
             </div>
-            <div class="col-md-6 d-none frequency-select">
+            <div class="col-md-4 d-none frequency-select" id="selectMinute">
                 <label for="frequencyValueMin" class="form-label">Minute Frequency:</label>
                 <select id="frequencyValueMin" name="frequencyValueMin" class="form-select">
                     <option value="">Select Minutes</option>
@@ -62,8 +74,8 @@
                     }
                 </select>
             </div>
-            <div class="col-md-6 d-none frequency-select">
-                <label for="frequencyValueHour" class="form-label">Minute Frequency:</label>
+            <div class="col-md-4 d-none frequency-select" id="selectHour">
+                <label for="frequencyValueHour" class="form-label">Hour Frequency:</label>
                 <select id="frequencyValueHour" name="frequencyValueHour" class="form-select">
                     <option value="">Select Hours</option>
                     @for (int i = 1; i < 60; i++)
@@ -72,8 +84,8 @@
                     }
                 </select>
             </div>
-            <div class="col-md-6 d-none frequency-select">
-                <label for="frequencyValueMin" class="form-label">Select Days:</label>
+            <div class="col-md-4 d-none frequency-select" id="selectDay">
+                <label for="frequencyValueMin" class="form-label">Select Days:</label><br />
                 <input type="checkbox" id="Sunday"/>&nbsp;<tex>Sunday</tex><br />
                 <input type="checkbox" id="Monday" />&nbsp;<tex>Monday</tex><br />
                 <input type="checkbox" id="Tuesday" />&nbsp;<tex>Tuesday</tex><br />
@@ -87,13 +99,19 @@
 
         <div class="row g-3 mt-2">
             <div class="col-md-4">
-                <input type="submit" id="saveBtn" class="btn btn-success ms-3 bg-opacity-25" value="Save" />
+                <input type="button" id="saveBtn" class="btn btn-success ms-3 bg-opacity-25" value="Save" onclick="scheduler.SaveJobDetails()" />
             </div>
         </div>
     </form>
 </div>
 
 @section Scripts{
-
+    <script src="~/js/addjobdetails.js"></script>
+    <script>
+        var scheduler = new Scheduer();
+        $(document).ready(function(){
+            scheduler.onInit();
+        });
+    </script>
 }
 

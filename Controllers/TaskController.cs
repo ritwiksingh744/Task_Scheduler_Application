@@ -27,6 +27,11 @@ namespace Task_Scheduler_Application.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public async Task<IActionResult> AddJobDetails(TaskDetails model)
+        {
+            return Json(model);
+        }
 
     }
 }
