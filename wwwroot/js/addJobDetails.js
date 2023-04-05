@@ -85,12 +85,13 @@
             }
         }
 
-        console.log("object: ", obj);
+        //Post details
         $.ajax({
             type: 'POST',
             url: '/Task/AddJobDetails',
             data: obj,
             success: function (response) {
+                RedirectToList();
                 console.log("response: ", response);
             },
             error: function (err) {
@@ -100,6 +101,19 @@
 
     }
 
+    function RedirectToList() {
+        $.ajax({
+            type: 'GET',
+            url: '/Task/ShowJobList',
+            success: function (response) {
+                $(document.body).html(response);
+            },
+            error: function (err) {
+                data = `<p>Error:${err.Message}</p>`;
+            }
+        })
+    }
+
     function onInit() {
         SelectTriggerType();
     }
@@ -107,6 +121,7 @@
         onInit: onInit,
         SelectTriggerType: SelectTriggerType,
         FrequencySelection: FrequencySelection,
-        SaveJobDetails: SaveJobDetails
+        SaveJobDetails: SaveJobDetails,
+        RedirectToList: RedirectToList
     }
 }

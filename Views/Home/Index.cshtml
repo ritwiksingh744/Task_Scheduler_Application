@@ -9,7 +9,7 @@
             <div class="card-body" style="background: linear-gradient(to right, #36d1dc, #5b86e5);">
                 <h5 class="card-title">Show Task List</h5>
                 <p class="card-text">List of Task with JobId, Job Name, Job-fire time etc.</p>
-                <a asp-controller="Home" asp-action="AddJob" class="btn btn-primary">Go</a>
+                <a role="button" onclick="loader.RedirectToList()" class="btn btn-primary">Go</a>
             </div>
         </div>
     </div>
@@ -19,9 +19,18 @@
             <div class="card-body" style="background: linear-gradient(to right, #36d1dc, #5b86e5);">
                 <h5 class="card-title">Add Job Details</h5>
                 <p class="card-text">Add Details of job such as job name, endpoints, job owner, owner email,    fire time etc.</p>
-                <a asp-controller="Task" asp-action="AddJobs" class="btn btn-primary">Go</a>
+                <a role="button" onclick="loader.RedirectToAddJob()" class="btn btn-primary">Go</a>
             </div>
         </div>
     </div>
 </div>
+@section Scripts{
+    <script src="~/js/loaderbody.js"></script>
+    <script>
+        var loader = ContentLoader();
+        $(document).ready(function(){
+            loader.onInit();
+        });
+    </script>
+}
 

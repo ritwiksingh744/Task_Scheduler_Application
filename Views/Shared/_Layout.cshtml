@@ -19,16 +19,16 @@
              class="collapse d-lg-block sidebar collapse bg-white" style="background-image: linear-gradient( rgba(151,69,198,0.5690651260504201) 35%, rgba(0,146,255,0.5550595238095238) 100%);">
             <div class="position-sticky" style="background-color: transparent;">
                 <div class="list-group list-group-flush mx-3 mt-4" style="background-color: transparent;">
-                    <a asp-controller="Home" asp-action="Index" style="background-color: transparent; color: white;"
+                    <a role="button" onclick="loader.RedirectToHome()" style="background-color: transparent; color: white;"
                        class="list-group-item list-group-item-action py-2 ripple"
                        aria-current="true">
                         <i class="fa-solid fa-house fa-fw me-3"></i><span>Home</span>
                     </a>
-                    <a asp-controller="Task" asp-action="ShowJobList" style="background-color: transparent; color: white;"
+                    <a role="button" onclick="loader.RedirectToList()" style="background-color: transparent; color: white;"
                        class="list-group-item list-group-item-action py-2 ripple">
                         <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
                     </a>
-                    <a asp-controller="Task" asp-action="AddJobs" style="background-color: transparent; color: white;"
+                    <a role="button" onclick="loader.RedirectToAddJob()" style="background-color: transparent; color: white;"
                        class="list-group-item list-group-item-action py-2 ripple">
                         <i class="fa-solid fa-business-time fa-fw me-3"></i><span>Add Job</span>
                     </a>
@@ -66,7 +66,7 @@
                 </button>
 
                 <!-- Brand -->
-                <a class="navbar-brand d-inline-block" style="font-family: 'Source Sans Pro', sans-serif;" asp-controller="Home" asp-action="Index">
+                <a role="button" class="navbar-brand d-inline-block" style="font-family: 'Source Sans Pro', sans-serif;" onclick="loader.RedirectToHome()">
                     <img src="~/TSA_logo.png"
                          height="40"
                          alt=""
@@ -151,7 +151,13 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/4236f2353f.js" crossorigin="anonymous"></script>
-    
+    <script src="~/js/loaderBody.js"></script>
+    <script>
+        var loader = ContentLoader();
+        $(document).ready(function(){
+            loader.onInit();
+        });
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
