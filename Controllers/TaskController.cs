@@ -31,6 +31,8 @@ namespace Task_Scheduler_Application.Controllers
         [HttpPost]
         public async Task<IActionResult> AddJobDetails(TaskDetails model)
         {
+            if (model != null && model.JobFrequencyType == "TriggerNow")
+                model.StartDateTime = DateTime.Now;
             var res = await _taskSchedulerServices.AddJobDetails(model);
             dynamic response = new ExpandoObject();
             if (res > 0)
