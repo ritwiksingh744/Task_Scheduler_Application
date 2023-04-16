@@ -31,6 +31,8 @@ namespace Task_Scheduler_Application
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            //Quarz Configuration 
             string? connectionString = _config.GetSection("QuartzConnection").Value;
             services.AddQuartz(opt =>
             {
@@ -44,6 +46,7 @@ namespace Task_Scheduler_Application
             {
                 opt.WaitForJobsToComplete = true;
             });
+
             RegisterDependecies(services);
         }
 
