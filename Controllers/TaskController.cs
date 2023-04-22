@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Dynamic;
 using Task_Scheduler_App.Application.Services;
+using Task_Scheduler_App.Models.Helper;
 using Task_Scheduler_App.Models.Model;
 
 namespace Task_Scheduler_Application.Controllers
@@ -31,6 +32,8 @@ namespace Task_Scheduler_Application.Controllers
         [HttpPost]
         public async Task<IActionResult> AddJobDetails(TaskDetails model)
         {
+            if (model != null)
+                model.TaskType = (int)TaskHelper.RunApi;
             if (model != null && model.JobFrequencyType == "TriggerNow")
                 model.StartDateTime = DateTime.Now;
             var res = await _taskSchedulerServices.AddJobDetails(model);

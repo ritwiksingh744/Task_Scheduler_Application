@@ -17,6 +17,9 @@
         frequencySelect.addClass("d-none");
         var freqType = $("#jobFrequencyType").val();
         switch (freqType) {
+            case "NoRepeat":
+                $("#selectMinute").removeClass("d-none");
+                break;
             case "Minutely":
                 $("#selectMinute").removeClass("d-none");
                 break;
@@ -42,6 +45,7 @@
             var date = new Date();
             obj.StartDateTime = `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`;
         }
+
         if ($("#trigger2").is(":checked")) {
             let date = $("#selectDate").val();
             let time = $("#selectTime").val();
