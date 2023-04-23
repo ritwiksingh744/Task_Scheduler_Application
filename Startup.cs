@@ -5,6 +5,7 @@ using Quartz.Impl;
 using System.Collections.Specialized;
 using Task_Scheduler_App.Application.Repository.Interface;
 using Task_Scheduler_App.Application.Services;
+using Task_Scheduler_App.Infrastructure.MailHelper;
 using Task_Scheduler_App.Infrastructure.QuartzService;
 using Task_Scheduler_App.Infrastructure.QuartzService.Jobs;
 using Task_Scheduler_App.Infrastructure.Repository;
@@ -59,6 +60,7 @@ namespace Task_Scheduler_Application
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<ITaskSchedulerServices, TaskSchedulerServices>();
             services.AddTransient<InitializeJob>();
+            services.AddTransient<EmaiHelper>();
         }
 
 
