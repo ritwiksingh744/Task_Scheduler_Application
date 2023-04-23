@@ -1,0 +1,15 @@
+D:\Projects\Scheduler_App\Task_Scheduler_App.Application\bin\Debug\net6.0\Task_Scheduler_App.Application.deps.json
+D:\Projects\Scheduler_App\Task_Scheduler_App.Application\bin\Debug\net6.0\Task_Scheduler_App.Application.dll
+D:\Projects\Scheduler_App\Task_Scheduler_App.Application\bin\Debug\net6.0\Task_Scheduler_App.Application.pdb
+D:\Projects\Scheduler_App\Task_Scheduler_App.Application\obj\Debug\net6.0\Task_Scheduler_App.Application.csproj.AssemblyReference.cache
+D:\Projects\Scheduler_App\Task_Scheduler_App.Application\obj\Debug\net6.0\Task_Scheduler_App.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Scheduler_App\Task_Scheduler_App.Application\obj\Debug\net6.0\Task_Scheduler_App.Application.AssemblyInfoInputs.cache
+D:\Projects\Scheduler_App\Task_Scheduler_App.Application\obj\Debug\net6.0\Task_Scheduler_App.Application.AssemblyInfo.cs
+D:\Projects\Scheduler_App\Task_Scheduler_App.Application\obj\Debug\net6.0\Task_Scheduler_App.Application.csproj.CoreCompileInputs.cache
+D:\Projects\Scheduler_App\Task_Scheduler_App.Application\obj\Debug\net6.0\Task_Scheduler_App.Application.dll
+D:\Projects\Scheduler_App\Task_Scheduler_App.Application\obj\Debug\net6.0\refint\Task_Scheduler_App.Application.dll
+D:\Projects\Scheduler_App\Task_Scheduler_App.Application\obj\Debug\net6.0\Task_Scheduler_App.Application.pdb
+D:\Projects\Scheduler_App\Task_Scheduler_App.Application\obj\Debug\net6.0\ref\Task_Scheduler_App.Application.dll
+D:\Projects\Scheduler_App\Task_Scheduler_App.Application\bin\Debug\net6.0\Task_Scheduler_App.Models.dll
+D:\Projects\Scheduler_App\Task_Scheduler_App.Application\bin\Debug\net6.0\Task_Scheduler_App.Models.pdb
+D:\Projects\Scheduler_App\Task_Scheduler_App.Application\obj\Debug\net6.0\Task_Scheduler_App.Application.csproj.CopyComplete
