@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task_Scheduler_Application", "Task_Scheduler_Application.csproj", "{489DC67A-DF82-487F-BA07-F730C8146E19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task_Scheduler_Application", ".\Task_Scheduler_Application\Task_Scheduler_Application.csproj", "{489DC67A-DF82-487F-BA07-F730C8146E19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_Scheduler_App.Models", "..\Task_Scheduler_App.Models\Task_Scheduler_App.Models.csproj", "{3457A52D-E7B0-4332-8CDB-28DAEDEC75C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_Scheduler_App.Models", ".\Task_Scheduler_App.Models\Task_Scheduler_App.Models.csproj", "{3457A52D-E7B0-4332-8CDB-28DAEDEC75C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_Scheduler_App.Application", "..\Task_Scheduler_App.Application\Task_Scheduler_App.Application.csproj", "{D66AB34B-854F-4569-8FEE-DBBD4AE6DD97}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_Scheduler_App.Application", ".\Task_Scheduler_App.Application\Task_Scheduler_App.Application.csproj", "{D66AB34B-854F-4569-8FEE-DBBD4AE6DD97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_Scheduler_App.Infrastructure", "..\Task_Scheduler_App.Infrastructure\Task_Scheduler_App.Infrastructure.csproj", "{9A9426CC-59AE-460D-B92F-91EF98DA3A2A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_Scheduler_App.Infrastructure", ".\Task_Scheduler_App.Infrastructure\Task_Scheduler_App.Infrastructure.csproj", "{9A9426CC-59AE-460D-B92F-91EF98DA3A2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
