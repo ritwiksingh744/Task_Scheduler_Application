@@ -1,5 +1,4 @@
 ﻿function Scheduer() {
-
     function SelectTriggerType() {
         var triggerSelection = $(".custom-frequency");
         var trigger1 = $("#trigger1");
@@ -102,7 +101,6 @@
                 console.log("Error: ", err.Message);
             }
         });
-
     }
 
     function RedirectToList() {

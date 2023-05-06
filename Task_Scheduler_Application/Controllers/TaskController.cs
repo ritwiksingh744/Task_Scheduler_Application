@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 using System.Dynamic;
 using Task_Scheduler_App.Application.Services;
 using Task_Scheduler_App.Models.Helper;
@@ -20,7 +19,7 @@ namespace Task_Scheduler_Application.Controllers
         public async Task<IActionResult> ShowJobList()
         {
             ViewModel viewModel = new ViewModel();
-            viewModel.TaskList =await _taskSchedulerServices.GetTaskDetailsList();
+            viewModel.TaskList = await _taskSchedulerServices.GetTaskDetailsList();
             return View(viewModel);
         }
 
@@ -29,6 +28,7 @@ namespace Task_Scheduler_Application.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> AddJobDetails(TaskDetails model)
         {
@@ -45,6 +45,5 @@ namespace Task_Scheduler_Application.Controllers
 
             return Json(response);
         }
-
     }
 }

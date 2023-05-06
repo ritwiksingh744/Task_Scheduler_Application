@@ -5,7 +5,7 @@
         obj.LastName = $("#lastName").val();
         var selectedDate = $("#birthDayMonth").val();
         var date = new Date(selectedDate);
-        obj.BirthMonth = date.getMonth()+1;
+        obj.BirthMonth = date.getMonth() + 1;
         obj.BirthDay = date.getDate();
         obj.Email = $("#email").val();
 

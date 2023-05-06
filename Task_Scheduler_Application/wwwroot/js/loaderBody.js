@@ -1,6 +1,4 @@
 ﻿function ContentLoader() {
-    
-
     function RedirectToList() {
         $.ajax({
             type: 'GET',
@@ -51,9 +49,7 @@
         })
     }
 
-
     function onInit() {
-
     }
 
     return {

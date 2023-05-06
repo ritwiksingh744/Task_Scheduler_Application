@@ -1,5 +1,4 @@
 ﻿function LoadWeather() {
-
     function CallWeatherApi() {
 		$.ajax({
 			type: 'GET',
@@ -14,7 +13,6 @@
     }
 
     function onInit() {
-
     }
 
     return {

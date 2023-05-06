@@ -1,16 +1,10 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Quartz;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
 using System.Net;
+using System.Net.Http.Headers;
 using System.Text;
-using System.Threading.Tasks;
-using Task_Scheduler_App.Models.Model;
-using static Quartz.Logging.OperationName;
 using Task_Scheduler_App.Models.Helper;
+using Task_Scheduler_App.Models.Model;
 
 namespace Task_Scheduler_App.Infrastructure.QuartzService.Jobs
 {
@@ -19,6 +13,7 @@ namespace Task_Scheduler_App.Infrastructure.QuartzService.Jobs
         public JobReminders()
         {
         }
+
         public Task Execute(IJobExecutionContext context)
         {
             TaskDetails jobData = null;
@@ -35,13 +30,13 @@ namespace Task_Scheduler_App.Infrastructure.QuartzService.Jobs
                         RunApi(jobData);
 
                         //testing schedule trigger
-                        TestLog(jobData.JobId.ToString(), $"A job is Scheduled with JobId: {jobData.JobId}, JobName: {jobData.JobName}, Job Frequecy Typ: {jobData.JobFrequencyType} which starts on {(jobData.StartDateTime !=null ?jobData.StartDateTime:DateTime.Now)}.");
+                        TestLog(jobData.JobId.ToString(), $"A job is Scheduled with JobId: {jobData.JobId}, JobName: {jobData.JobName}, Job Frequecy Typ: {jobData.JobFrequencyType} which starts on {(jobData.StartDateTime != null ? jobData.StartDateTime : DateTime.Now)}.");
                         break;
+
                     case TaskHelper.WishBirthday:
                         WishBirthdayByMail(jobData);
                         break;
                 }
-                
             }
             return Task.CompletedTask;
         }
@@ -67,14 +62,12 @@ namespace Task_Scheduler_App.Infrastructure.QuartzService.Jobs
                         //todo
                     }
                 }
-
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
 
         private void TestLog(string fileName, string message)
         {

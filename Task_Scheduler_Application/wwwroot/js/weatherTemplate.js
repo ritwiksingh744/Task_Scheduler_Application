@@ -1,5 +1,4 @@
 ﻿function WeatherLoader() {
-
     function LoadWeatherData() {
         // API call
         let queryUrl = "https://api.openweathermap.org/data/2.5/onecall?";
@@ -185,5 +184,3 @@
         LoadWeatherData: LoadWeatherData
     }
 }
-
-

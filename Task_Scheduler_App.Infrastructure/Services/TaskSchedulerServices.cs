@@ -1,9 +1,4 @@
 ﻿using Dapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Task_Scheduler_App.Application.Repository.Interface;
 using Task_Scheduler_App.Application.Services;
 using Task_Scheduler_App.Infrastructure.QuartzService;
@@ -34,8 +29,8 @@ namespace Task_Scheduler_App.Infrastructure.Services
             parameters.Add("@FrequencyValue", taskDetails.FrequencyValue);
             parameters.Add("@StartDateTime", taskDetails.StartDateTime);
 
-            var res =await _unitOfWork.Dapper.QueryAsync<int>("AddTaskDetails", parameters, System.Data.CommandType.StoredProcedure);
-            if(res.First() > 0)
+            var res = await _unitOfWork.Dapper.QueryAsync<int>("AddTaskDetails", parameters, System.Data.CommandType.StoredProcedure);
+            if (res.First() > 0)
             {
                 taskDetails.JobId = res.First();
                 await _initializeJob.RunJobs(taskDetails);
@@ -45,7 +40,7 @@ namespace Task_Scheduler_App.Infrastructure.Services
 
         public async Task<List<TaskDetails>> GetTaskDetailsList()
         {
-            var taskList =await _unitOfWork.Dapper.QueryAsync<TaskDetails>("GetTaskDetailList", new DynamicParameters(), System.Data.CommandType.StoredProcedure);
+            var taskList = await _unitOfWork.Dapper.QueryAsync<TaskDetails>("GetTaskDetailList", new DynamicParameters(), System.Data.CommandType.StoredProcedure);
             return taskList;
         }
     }

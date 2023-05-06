@@ -1,5 +1,4 @@
-﻿
-namespace Task_Scheduler_Application
+﻿namespace Task_Scheduler_Application
 {
     public class Program
     {

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Task_Scheduler_App.Models.Model
+﻿namespace Task_Scheduler_App.Models.Model
 {
     public class JobStatus
     {
@@ -20,6 +14,6 @@ namespace Task_Scheduler_App.Models.Model
     {
         Completed = 1,
         Failed = 2,
-        Waiting =3
+        Waiting = 3
     }
 }

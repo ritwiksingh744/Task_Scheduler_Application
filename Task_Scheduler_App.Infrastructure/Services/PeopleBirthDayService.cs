@@ -27,7 +27,7 @@ namespace Task_Scheduler_App.Infrastructure.Services
             parameters.Add("@BirthDay", model.BirthDay);
             parameters.Add("@Email", model.Email);
 
-            var result =await _unitOfWork.Dapper.QueryAsync<int>("AddBirthdayPeopleDetails", parameters, System.Data.CommandType.StoredProcedure);
+            var result = await _unitOfWork.Dapper.QueryAsync<int>("AddBirthdayPeopleDetails", parameters, System.Data.CommandType.StoredProcedure);
             //if(result.First() > 0)
             //{
             //    var taskDetail = new TaskDetails()

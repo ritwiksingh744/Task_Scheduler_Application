@@ -9,7 +9,7 @@ namespace Task_Scheduler_App.Infrastructure.QuartzService
     public class InitializeJob
     {
         private readonly ISchedulerFactory _scheduleFactory;
-        private  IScheduler _scheduler;
+        private IScheduler _scheduler;
         private readonly EmaiHelper _emailHelper;
 
         public InitializeJob(ISchedulerFactory factory, EmaiHelper emaiHelper)
@@ -17,13 +17,13 @@ namespace Task_Scheduler_App.Infrastructure.QuartzService
             _scheduleFactory = factory;
             _emailHelper = emaiHelper;
         }
+
         public async Task RunJobs(TaskDetails myjob)
         {
             var job = CreateJob(myjob);
             var trigger = CreateTrigger(myjob);
-            _scheduler= await _scheduleFactory.GetScheduler();
+            _scheduler = await _scheduleFactory.GetScheduler();
             await _scheduler.ScheduleJob(job, trigger);
-
         }
 
         private IJobDetail CreateJob(TaskDetails myjob)
@@ -42,7 +42,7 @@ namespace Task_Scheduler_App.Infrastructure.QuartzService
             var jsonString = JsonConvert.SerializeObject(myjob);
             TriggerKey triggerKey = new TriggerKey(myjob.JobId.ToString(), myjob.JobName);
 
-            if(myjob.JobFrequencyType == "TriggerNow")
+            if (myjob.JobFrequencyType == "TriggerNow")
             {
                 return TriggerBuilder.Create()
                 .WithIdentity(triggerKey)
@@ -52,7 +52,7 @@ namespace Task_Scheduler_App.Infrastructure.QuartzService
                 .StartNow()
                 .Build();
             }
-            if(myjob.JobFrequencyType == "NoRepeat")
+            if (myjob.JobFrequencyType == "NoRepeat")
             {
                 return TriggerBuilder.Create()
                 .WithIdentity(triggerKey)
@@ -82,12 +82,16 @@ namespace Task_Scheduler_App.Infrastructure.QuartzService
             {
                 case "Daily":
                     return $"0 {minute} {hour} 0 0 ? 0";
+
                 case "Minutely":
                     return $"0 {minute}/{data.FrequencyValue} {hour} 0 0 ? 0";
+
                 case "Houlry":
                     return $"0 {minute} {hour}/{data.FrequencyValue} {day} ? 0";
+
                 case "Weekly":
                     return $"0 {minute} {hour} ? 0 {data.FrequencyValue} 0";
+
                 default:
                     return $"0 {minute} {hour} {day} {month} ? {year}";
             }

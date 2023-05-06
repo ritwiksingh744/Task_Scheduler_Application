@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Task_Scheduler_App.Application.Repository.Interface;
+﻿using Task_Scheduler_App.Application.Repository.Interface;
 
 namespace Task_Scheduler_App.Infrastructure.Repository
 {
@@ -13,6 +8,7 @@ namespace Task_Scheduler_App.Infrastructure.Repository
         {
             Dapper = dapper;
         }
+
         public IDapper Dapper { get; set; }
     }
 }

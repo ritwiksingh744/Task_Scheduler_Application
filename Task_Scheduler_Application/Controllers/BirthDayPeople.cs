@@ -14,11 +14,13 @@ namespace Task_Scheduler_Application.Controllers
         {
             _peopleBirthDayService = peopleBirthDayService;
         }
+
         [HttpGet]
         public async Task<IActionResult> AddBirthDayPeople()
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> AddPeople(BirthDayPeopleModel model)
         {
