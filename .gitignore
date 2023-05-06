@@ -4,3 +4,14 @@
 
 /.vs/Task_Scheduler_Application/FileContentIndex/merges
 /.vs/Task_Scheduler_Application/FileContentIndex
+bin/
+obj/
+.vs/
+Task_Scheduler_App.Application/bin
+Task_Scheduler_App.Application/obj
+Task_Scheduler_App.Infrastructure/obj
+Task_Scheduler_App.Infrastructure/bin
+Task_Scheduler_App.Models/bin
+Task_Scheduler_App.Models/obj
+Task_Scheduler_Application/obj
+Task_Scheduler_Application/bin
