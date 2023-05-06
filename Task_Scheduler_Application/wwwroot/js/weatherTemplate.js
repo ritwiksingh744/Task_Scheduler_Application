@@ -12,7 +12,6 @@
         fetch(file)
             .then((response) => response.json())
             .then((data) => {
-                debugger
                 console.log("weather Template: ", data);
                 // Weather main data
                 let main = data.current.weather[0].main;
@@ -45,7 +44,6 @@
 
                 // Time
                 let timeNow = new Date().getHours();
-                debugger
                 let timeNoww = formatAMPM(timeNow);
                 let time1 = formatAMPM(timeNow + 1);
                 let time2 = formatAMPM(timeNow + 2);

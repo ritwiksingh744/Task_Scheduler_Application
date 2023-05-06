@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "AddBirthDayPeople";
+}
+<div class="container bg-white shadow-sm p-3">
+    <h3 class="text-black-50"><i class="fa-solid fa-person fa-lg"></i>&nbsp; Add BirthDay People</h3>
+    <hr />
+    <form id="birthForm">
+        <div class="row g-2">
+            <div class="col-md-5">
+                <label for="firstName" class="form-label">First Name:</label>
+                <input type="text" class="form-control" name="firstName" id="firstName">
+            </div>
+            <div class="col-md-5">
+                <label for="lastName" class="form-label">Last Name:</label>
+                <input type="text" class="form-control" name="lastName" id="lastName">
+            </div>
+            
+            <div class="col-md-5">
+                <label for="birthDayMonth" class="form-label">Select Birth Day & Month:</label>
+                <input type="date" class="form-control" name="birthDayMonth" id="birthDayMonth" />
+            </div>
+            <div class="col-md-5">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" name="email" id="email">
+            </div>
+        </div>
+
+        <div class="row g-3 mt-2">
+            <div class="col-md-4">
+                <input type="button" id="saveBtn" class="btn btn-primary" value="Add" onclick="birthday.SaveBirthdayDetails()" />
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <script src="~/js/addbirthdaypeople.js"></script>
+    <script>
+        var birthday = new Birthday();
+        $(document).ready(function(){
+            birthday.onInit();
+        });
+    </script>
+}
+

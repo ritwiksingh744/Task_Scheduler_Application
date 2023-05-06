@@ -38,6 +38,19 @@
         })
     }
 
+    function RedirectToAddBirthDayPeople() {
+        $.ajax({
+            type: 'GET',
+            url: '/BirthDayPeople/AddBirthDayPeople',
+            success: function (response) {
+                $(document.body).html(response);
+            },
+            error: function (err) {
+                data = `<p>Error:${err.Message}</p>`;
+            }
+        })
+    }
+
 
     function onInit() {
 
@@ -47,6 +60,7 @@
         onInit: onInit,
         RedirectToList: RedirectToList,
         RedirectToHome: RedirectToHome,
-        RedirectToAddJob: RedirectToAddJob
+        RedirectToAddJob: RedirectToAddJob,
+        RedirectToAddBirthDayPeople: RedirectToAddBirthDayPeople
     }
 }

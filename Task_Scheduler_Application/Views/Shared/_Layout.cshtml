@@ -22,28 +22,28 @@
                     <a role="button" onclick="loader.RedirectToHome()" style="background-color: transparent; color: white;"
                        class="list-group-item list-group-item-action py-2 ripple"
                        aria-current="true">
-                        <i class="fa-solid fa-house fa-fw me-3"></i><span>Home</span>
+                        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
                     </a>
                     <a role="button" onclick="loader.RedirectToList()" style="background-color: transparent; color: white;"
                        class="list-group-item list-group-item-action py-2 ripple">
-                        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
+                        <i class="fa-solid fa-clipboard-list fa-fw me-3"></i><span>Task List</span>
                     </a>
                     <a role="button" onclick="loader.RedirectToAddJob()" style="background-color: transparent; color: white;"
                        class="list-group-item list-group-item-action py-2 ripple">
                         <i class="fa-solid fa-business-time fa-fw me-3"></i><span>Add Job</span>
                     </a>
-                    <a asp-controller="Home" asp-action="RunJob" style="background-color: transparent; color: white;"
+                    <a role="button" onclick="loader.RedirectToAddBirthDayPeople()" style="background-color: transparent; color: white;"
                        class="list-group-item list-group-item-action py-2 ripple">
-                        <i class="fas fa-lock fa-fw me-3"></i><span>Start Job</span>
+                        <i class="fa-solid fa-cake-candles fa-fw me-3"></i><span>Add Birthday</span>
                     </a>
                     <a href="#" style="background-color: transparent; color: white;"
                        class="list-group-item list-group-item-action py-2 ripple">
-                        <i class="fas fa-chart-line fa-fw me-3"></i><span>Reschedule Job</span>
+                        <i class="fa-solid fa-person"></i><i class="fa-solid fa-person me-3"></i><span>Birthday List</span>
                     </a>
-                    <a href="#" style="background-color: transparent; color: white;"
+                    @*<a href="#" style="background-color: transparent; color: white;"
                        class="list-group-item list-group-item-action py-2 ripple">
                         <i class="fas fa-chart-pie fa-fw me-3"></i><span>Track a Job</span>
-                    </a>
+                    </a>*@
 
                 </div>
             </div>

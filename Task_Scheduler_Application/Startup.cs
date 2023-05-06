@@ -59,6 +59,7 @@ namespace Task_Scheduler_Application
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<ITaskSchedulerServices, TaskSchedulerServices>();
+            services.AddTransient<IPeopleBirthDayService, PeopleBirthDayService>();
             services.AddTransient<InitializeJob>();
             services.AddTransient<EmaiHelper>();
         }
