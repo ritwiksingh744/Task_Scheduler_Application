@@ -3,6 +3,7 @@ using Quartz;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
+using Task_Scheduler_App.Infrastructure.MailHelper;
 using Task_Scheduler_App.Models.Helper;
 using Task_Scheduler_App.Models.Model;
 
@@ -10,8 +11,10 @@ namespace Task_Scheduler_App.Infrastructure.QuartzService.Jobs
 {
     public class JobReminders : IJob
     {
+        EmaiHelper _mailService;
         public JobReminders()
         {
+
         }
 
         public Task Execute(IJobExecutionContext context)
@@ -41,9 +44,13 @@ namespace Task_Scheduler_App.Infrastructure.QuartzService.Jobs
             return Task.CompletedTask;
         }
 
-        private void WishBirthdayByMail(TaskDetails jobData)
+        private async void WishBirthdayByMail(TaskDetails jobData)
         {
-            throw new NotImplementedException();
+            var toMails = new List<string>();
+            toMails.Add(jobData.JobOwnerEmail);
+            _mailService = new EmaiHelper();
+            string body = _mailService.CreateBody(jobData.JobOwnerName, "/WishMail.html");
+           await _mailService.AddMailToBusQueue(toMails,string.IsNullOrEmpty(body)?"🎂Happy Birthday🎂 To you.🎈":body);
         }
 
         private async Task RunApi(TaskDetails jobData)

@@ -28,19 +28,20 @@ namespace Task_Scheduler_App.Infrastructure.Services
             parameters.Add("@Email", model.Email);
 
             var result = await _unitOfWork.Dapper.QueryAsync<int>("AddBirthdayPeopleDetails", parameters, System.Data.CommandType.StoredProcedure);
-            //if(result.First() > 0)
-            //{
-            //    var taskDetail = new TaskDetails()
-            //    {
-            //        JobId = result.First(),
-            //        JobName = $"wishBirthDay_{result.First()}",
-            //        TaskType = model.TaskType,
-            //        JobOwnerEmail = model.Email,
-            //        JobOwnerName = $"{model.FirstName} {model.LastName}",
-            //        StartDateTime = DateTime.Parse($"{model.BirthDay}/{model.BirthMonth}/{DateTime.Now.Year}")
-            //    };
-            //    await _initializeJob.RunJobs(taskDetail);
-            //}
+            if (result.First() > 0)
+            {
+                var taskDetail = new TaskDetails()
+                {
+                    JobId = result.First(),
+                    JobName = $"wishBirthDay_{result.First()}",
+                    TaskType = model.TaskType,
+                    JobOwnerEmail = model.Email,
+                    JobFrequencyType = model.BirthDay == DateTime.Now.Day && model.BirthMonth == DateTime.Now.Month ? "TriggerNow" :"",
+                    JobOwnerName = $"{model.FirstName} {model.LastName}",
+                    StartDateTime = DateTime.Parse($"{model.BirthDay}/{model.BirthMonth}/{DateTime.Now.Year}")
+                };
+                await _initializeJob.RunJobs(taskDetail);
+            }
             return result.First();
         }
     }

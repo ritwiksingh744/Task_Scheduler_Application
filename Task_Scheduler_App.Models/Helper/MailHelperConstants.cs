@@ -3,6 +3,7 @@
     public static class MailHelperConstants
     {
         public const string Sender = "leolab744@gmail.com";
+        public const string Support = "taskscheduler@support.com";
         public const string AppPassword = "avlnpzfoetaivqiw";
         public const string EmailHead = "NoReply: Birthday Wish";
         public const string BirthdayWish = "Birthday Wish";
