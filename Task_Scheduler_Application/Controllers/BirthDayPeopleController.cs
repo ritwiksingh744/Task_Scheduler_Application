@@ -17,6 +17,14 @@ namespace Task_Scheduler_Application.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> ShowBirthdayList()
+        {
+            ViewModel vm = new ViewModel();
+            vm.BirthDayList = await _peopleBirthDayService.GetBirthdayList();
+            return View(vm);
+        }
+
+        [HttpGet]
         public async Task<IActionResult> AddBirthDayPeople()
         {
             return View();

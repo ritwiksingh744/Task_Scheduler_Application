@@ -44,5 +44,10 @@ namespace Task_Scheduler_App.Infrastructure.Services
             }
             return result.First();
         }
+
+        public async Task<List<BirthDayPeopleModel>> GetBirthdayList()
+        {
+            return await _unitOfWork.Dapper.QueryAsync<BirthDayPeopleModel>("GetBirthdayList", new DynamicParameters(), System.Data.CommandType.StoredProcedure);
+        }
     }
 }

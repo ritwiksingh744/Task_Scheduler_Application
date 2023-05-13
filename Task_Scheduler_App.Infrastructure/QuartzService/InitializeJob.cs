@@ -93,7 +93,7 @@ namespace Task_Scheduler_App.Infrastructure.QuartzService
                     return $"0 {minute} {hour} ? 0 {data.FrequencyValue} 0";
 
                 default:
-                    return $"0 {minute} {hour} {day} {month} ? {year}";
+                    return $"0 0 0 {day} {month} ? *";
             }
         }
     }

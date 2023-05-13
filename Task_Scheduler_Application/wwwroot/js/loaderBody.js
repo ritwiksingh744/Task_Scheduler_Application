@@ -48,6 +48,18 @@
             }
         })
     }
+    function RedirectToBirthdayPeopleList() {
+        $.ajax({
+            type: 'GET',
+            url: '/BirthDayPeople/ShowBirthdayList',
+            success: function (response) {
+                $(document.body).html(response);
+            },
+            error: function (err) {
+                data = `<p>Error:${err.Message}</p>`;
+            }
+        })
+    }
 
     function onInit() {
     }
@@ -57,6 +69,7 @@
         RedirectToList: RedirectToList,
         RedirectToHome: RedirectToHome,
         RedirectToAddJob: RedirectToAddJob,
-        RedirectToAddBirthDayPeople: RedirectToAddBirthDayPeople
+        RedirectToAddBirthDayPeople: RedirectToAddBirthDayPeople,
+        RedirectToBirthdayPeopleList: RedirectToBirthdayPeopleList
     }
 }
