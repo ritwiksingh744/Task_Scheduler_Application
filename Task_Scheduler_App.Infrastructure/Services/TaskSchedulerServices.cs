@@ -43,5 +43,18 @@ namespace Task_Scheduler_App.Infrastructure.Services
             var taskList = await _unitOfWork.Dapper.QueryAsync<TaskDetails>("GetTaskDetailList", new DynamicParameters(), System.Data.CommandType.StoredProcedure);
             return taskList;
         }
+
+        public async Task<bool> RemoveJob(int jobId)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@JobId", jobId);
+            var res = await _unitOfWork.Dapper.QueryAsync<TaskDetails>("RemoveJobById", parameters, System.Data.CommandType.StoredProcedure);
+            if(res.First() != null)
+            {
+                await _initializeJob.RemoveJob(res.First().JobId.ToString(), res.First().JobName);
+                return true;
+            }
+            return false;
+        }
     }
 }

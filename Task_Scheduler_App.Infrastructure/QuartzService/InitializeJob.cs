@@ -81,20 +81,27 @@ namespace Task_Scheduler_App.Infrastructure.QuartzService
             switch (data?.JobFrequencyType)
             {
                 case "Daily":
-                    return $"0 {minute} {hour} 0 0 ? 0";
+                    return $"0 {minute} {hour} * * ? *";
 
                 case "Minutely":
-                    return $"0 {minute}/{data.FrequencyValue} {hour} 0 0 ? 0";
+                    return $"0 {minute}/{data.FrequencyValue} {hour} * * ? *";
 
                 case "Houlry":
-                    return $"0 {minute} {hour}/{data.FrequencyValue} {day} ? 0";
+                    return $"0 {minute} {hour}/{data.FrequencyValue} {day} ? *";
 
                 case "Weekly":
-                    return $"0 {minute} {hour} ? 0 {data.FrequencyValue} 0";
+                    return $"0 {minute} {hour} ? * {data.FrequencyValue} *";
 
                 default:
                     return $"0 0 0 {day} {month} ? *";
             }
+        }
+
+        public async Task<bool> RemoveJob(string jobId, string jobName)
+        {
+            var jobKey = new JobKey(jobId, jobName);
+            _scheduler = await _scheduleFactory.GetScheduler();
+            return await _scheduler.DeleteJob(jobKey);
         }
     }
 }

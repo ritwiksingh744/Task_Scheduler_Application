@@ -23,7 +23,7 @@
             @if(Model.TaskList.Any()){
                 foreach(var item in Model.TaskList){
                     <tr>
-                        <td></td>
+                        <td style="white-space:nowrap"><a role="button" onclick="showjob.DeleteJob(@item.JobId)"><i class="fa-solid fa-trash-can"></i></a></td>
                         <td>@item.JobId</td>
                         <td>@item.JobName</td>
                         <td>@item.Endpoint</td>
@@ -40,4 +40,9 @@
         </tbody>
     </table>
 </div>
-
+@section Scripts{
+    <script src="~/js/showjobs.js"></script>
+    <script>
+        var showjob = new ShowJobs();
+    </script>
+}

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Dynamic;
 using Task_Scheduler_App.Application.Services;
+using Task_Scheduler_App.Models.Common;
 using Task_Scheduler_App.Models.Helper;
 using Task_Scheduler_App.Models.Model;
 
@@ -44,6 +45,25 @@ namespace Task_Scheduler_Application.Controllers
                 response.Message = "Failed to add";
 
             return Json(response);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> RemoveTask(DeleteJobRequest request)
+        {
+            var response = new BaseResponse();
+            var res = await _taskSchedulerServices.RemoveJob(request.JobId);
+            if (res)
+            {
+                response.Success = true;
+                response.Message = "Successfully removed task.";
+                return Json(response);
+            }
+            else
+            {
+                response.Success = false;
+                response.ErrorMessage = "Failed to delete task. Please try again.";
+                return Json(response);
+            }
         }
     }
 }

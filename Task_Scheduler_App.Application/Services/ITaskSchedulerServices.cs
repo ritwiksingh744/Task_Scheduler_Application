@@ -7,5 +7,6 @@ namespace Task_Scheduler_App.Application.Services
         Task<List<TaskDetails>> GetTaskDetailsList();
 
         Task<int> AddJobDetails(TaskDetails taskDetails);
+        Task<bool> RemoveJob(int jobId);
     }
 }
