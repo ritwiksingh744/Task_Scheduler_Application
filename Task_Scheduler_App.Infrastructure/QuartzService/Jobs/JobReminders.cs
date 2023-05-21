@@ -33,7 +33,7 @@ namespace Task_Scheduler_App.Infrastructure.QuartzService.Jobs
                         RunApi(jobData);
 
                         //testing schedule trigger
-                        TestLog(jobData.JobId.ToString(), $"A job is Scheduled with JobId: {jobData.JobId}, JobName: {jobData.JobName}, Job Frequecy Typ: {jobData.JobFrequencyType} which starts on {(jobData.StartDateTime != null ? jobData.StartDateTime : DateTime.Now)}.");
+                        //TestLog(jobData.JobId.ToString(), $"A job is Scheduled with JobId: {jobData.JobId}, JobName: {jobData.JobName}, Job Frequecy Typ: {jobData.JobFrequencyType} which starts on {(jobData.StartDateTime != null ? jobData.StartDateTime : DateTime.Now)}.");
                         break;
 
                     case TaskHelper.WishBirthday:
